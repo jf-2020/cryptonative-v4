@@ -1,0 +1,13 @@
+.flex-row-container {
+    display: flex;
+}
+
+img {
+    flex-basis: 33%;
+}
+
+.flex-col-container {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-evenly; */
+}
