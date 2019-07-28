@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Lorem = () => {
+const ParagraphData = () => {
     const lorem = [];
     for (let i = 0; i < 100; i++) {
         lorem.push("Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, obcaecati quos! Quaerat, voluptas possimus ex ducimus, nobis, sit laudantium sapiente maxime totam quis vitae dolorem reiciendis libero! Sed, possimus molestias!");
@@ -14,4 +14,4 @@ const Lorem = () => {
     )
 };
 
-export default Lorem;
+export default ParagraphData;

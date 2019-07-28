@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/RowBadge.css';
+import '../../styles/RowBadge.css';
 import Avatar from '@material-ui/core/Avatar';
 
 const RowBadge = (props) => {

@@ -14,7 +14,7 @@ import RowBadge from './RowBadge';
 import MiniChart from './MiniChart';
 import RowItem from './RowItem';
 
-import '../styles/Row.css';
+import '../../styles/Row.css';
 
 class Row extends Component {
     constructor(props) {
