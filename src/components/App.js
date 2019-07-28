@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import SearchAppBar from './SearchAppBar';
 import LabelBottomNavigation from './LabelBottomNavigation';
 import Box from '@material-ui/core/Box';
@@ -7,7 +8,6 @@ import Row from './Row';
 class App extends Component {
     constructor(props) {
         super(props);
-
         this.state = {
             list: [],
             rendered: false
@@ -41,10 +41,25 @@ class App extends Component {
             }));
     }
 
+    componentDidUpdate() {
+        // get dimensions of navbar & footer
+        const node = ReactDOM.findDOMNode(this.divElement);
+        const navbar = node.getElementsByClassName('MuiPaper-root')[0],
+            footer = node.getElementsByClassName('MuiBottomNavigation-root')[0];
+        const navbarWidth = navbar.offsetWidth,
+            navbarHeight = navbar.offsetHeight,
+            footerWidth = footer.offsetWidth,
+            footerHeight = footer.offsetHeight;
+        console.log("===NAVBAR===");
+        console.log("width: ", navbarWidth, " | height: ", navbarHeight);
+        console.log("===FOOTER===");
+        console.log("width: ", footerWidth, " | height: ", footerHeight);
+    }
+
     render() {
         if (this.state.rendered) {
             return (
-                <div style={{ height: '100%' }}>
+                <div style={{ height: '100%' }} ref={(divElement) => this.divElement = divElement}>
                     <Box display="flex" flexDirection="column">
                         <SearchAppBar />
                         <Box flex="1"
@@ -77,24 +92,5 @@ class App extends Component {
         }
     }
 }
-
-// function App() {
-//     return (
-//         <div style={{ height: '100%' }}>
-//             <Box display="flex" flexDirection="column">
-//                 <SearchAppBar />
-//                 <Box flex="1"
-//                     overflow="auto"
-//                     display="flex"
-//                     flexDirection="column"
-//                     alignItems="stretch"
-//                 >
-//                     <Lorem />
-//                 </Box>
-//                 <LabelBottomNavigation />
-//             </Box>
-//         </div>
-//     )
-// }
 
 export default App;

@@ -1,6 +1,6 @@
 # CryptoNative
 
-As of day 5, the base page layout is complete, utilizing __Material UI__ for stylized components.
+This projects is a crytocurrency dashboard with additional features (portfolio, data visualizations, etc).
 
 ## Authors:
 1. Igor Popenov
