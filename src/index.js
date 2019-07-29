@@ -3,30 +3,45 @@ import ReactDOM from 'react-dom';
 import BaseTemplate from './components/BaseTemplate';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-/* import lorem for testing */
-import HeaderData from './components/lorem/HeaderData';
-import ParagraphData from './components/lorem/ParagraphData';
+import MarketIndex from './components/MarketIndex';
 
-/* import charts */
-import LineChart from './components/Charts/LineChart';
-import LineGraph from './components/Charts/LineGraph';
+// /* import lorem for testing */
+// import HeaderData from './components/lorem/HeaderData';
+// import ParagraphData from './components/lorem/ParagraphData';
 
-/* testing charts & lorem */
+// /* import charts */
+// import LineChart from './components/Charts/LineChart';
+// import LineGraph from './components/Charts/LineGraph';
+
+/* testing row insertion */
 const App = () => {
     return (
         <>
             <CssBaseline>
                 <BaseTemplate>
-                    <HeaderData />
-                    <LineGraph />
-                    <ParagraphData />
-                    <LineChart />
-                    <HeaderData />
+                    <MarketIndex />
                 </BaseTemplate>
             </CssBaseline>
         </>
     )
 }
+
+// /* testing charts & lorem */
+// const App = () => {
+//     return (
+//         <>
+//             <CssBaseline>
+//                 <BaseTemplate>
+//                     <HeaderData />
+//                     <LineGraph />
+//                     <ParagraphData />
+//                     <LineChart />
+//                     <HeaderData />
+//                 </BaseTemplate>
+//             </CssBaseline>
+//         </>
+//     )
+// }
 
 // /* testing the graphs as child componets */
 // const App = () => {
