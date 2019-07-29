@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BaseTemplate from './components/BaseTemplate';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
 import MarketIndex from './components/MarketIndex';
 
 // /* import lorem for testing */
@@ -25,78 +24,5 @@ const App = () => {
         </>
     )
 }
-
-// /* testing charts & lorem */
-// const App = () => {
-//     return (
-//         <>
-//             <CssBaseline>
-//                 <BaseTemplate>
-//                     <HeaderData />
-//                     <LineGraph />
-//                     <ParagraphData />
-//                     <LineChart />
-//                     <HeaderData />
-//                 </BaseTemplate>
-//             </CssBaseline>
-//         </>
-//     )
-// }
-
-// /* testing the graphs as child componets */
-// const App = () => {
-//     return (
-//         <>
-//             <CssBaseline>
-//                 <BaseTemplate>
-//                     <LineGraph />
-//                     <LineChart />
-//                 </BaseTemplate>
-//             </CssBaseline>
-//         </>
-//     )
-// }
-
-// /* multiple child components -- all lorem */
-// const App = () => {
-//     return (
-//         <>
-//             <CssBaseline>
-//                 <BaseTemplate>
-//                     <HeaderData />
-//                     <ParagraphData />
-//                     <HeaderData />
-//                     <ParagraphData />
-//                 </BaseTemplate>
-//             </CssBaseline>
-//         </>
-//     )
-// }
-
-// /* header lorem */
-// const App = () => {
-//     return (
-//         <>
-//             <CssBaseline>
-//                 <BaseTemplate>
-//                     <HeaderData />
-//                 </BaseTemplate>
-//             </CssBaseline>
-//         </>
-//     )
-// }
-
-// /* paragraph lorem */
-// const App = () => {
-//     return (
-//         <>
-//             <CssBaseline>
-//                 <BaseTemplate>
-//                     <ParagraphData />
-//                 </BaseTemplate>
-//             </CssBaseline>
-//         </>
-//     )
-// }
 
 ReactDOM.render(<App />, document.getElementById('root'));
