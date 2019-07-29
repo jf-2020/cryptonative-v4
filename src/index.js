@@ -4,12 +4,14 @@ import BaseTemplate from './components/BaseTemplate';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 /* import lorem for testing */
-import HeaderData from './components/lorem/HeaderData';
-import ParagraphData from './components/lorem/ParagraphData';
+import HeaderData from './components/Lorem/HeaderData';
+import ParagraphData from './components/Lorem/ParagraphData';
 
 /* import charts */
 import LineChart from './components/Charts/LineChart';
 import LineGraph from './components/Charts/LineGraph';
+import Donut from './components/Charts/Donut'
+import Chart from './components/Charts/Chart';
 
 /* testing charts & lorem */
 const App = () => {
@@ -17,10 +19,12 @@ const App = () => {
         <>
             <CssBaseline>
                 <BaseTemplate>
+                    <Chart />
                     <HeaderData />
+                    <Donut />
                     <LineGraph />
-                    <ParagraphData />
                     <LineChart />
+                    <ParagraphData />
                     <HeaderData />
                 </BaseTemplate>
             </CssBaseline>

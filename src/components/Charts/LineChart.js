@@ -54,51 +54,12 @@ class LineChart extends Component {
         return (
             <>
 
-                <div className="container">
-                    <nav className="navbar">
-                        <h1>NAV</h1>
-                    </nav>
 
-                    <div>
-                        <h2>Line Example</h2>
-                        <Line data={ this.state } />
-                    </div>
-
-                    <main className="content">
-                        <div className="item1">
-                            picture
-                        </div>
-                        <div className="item2">
-                            <div className="WA">
-                                $10,000
-                            </div>
-                            <div className="NumCoins">
-                                4
-                            </div>
-                        </div>
-                        <div className="item3">
-                            Space
-                        </div>
-                        <div className="item4">
-                            <div className="CurrentValue">
-                                $12,000
-                            </div>
-                            <div className="DailyPercent">
-                                5.0%
-                            </div>
-                        </div>
-                        <div className="item5">
-                            <div className="Profit">$2,000
-                            </div>
-                            <div className="ProfitPercent">
-                                20%
-                            </div>
-                        </div>
-                    </main>
-                    <footer className="footer">
-                        <h1>FOOTER</h1>
-                    </footer>
+                <div>
+                    <h2>Line Example</h2>
+                    <Line data={ this.state } />
                 </div>
+
             </>
         );
     }

@@ -15,14 +15,14 @@ const getState = () => ({
     datasets: [{
         data: [getRandomInt(50, 200), getRandomInt(100, 150), getRandomInt(150, 250)],
         backgroundColor: [
-            'red',
-            'green',
-            'yellow'
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56'
         ],
         hoverBackgroundColor: [
-            'red',
-            'green',
-            'yellow'
+            '#FF6384',
+            '#36A2EB',
+            '#FFCE56'
         ]
     }]
 });
