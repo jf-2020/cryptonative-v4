@@ -1,17 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import App from './components/App';
 import BaseTemplate from './components/BaseTemplate';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-const MyApp = () => {
+/* import lorem for testing */
+import HeaderData from './components/lorem/HeaderData';
+// import ParagraphData from './components/lorem/ParagraphData';
+
+/* header lorem */
+const App = () => {
     return (
         <>
             <CssBaseline>
-                <BaseTemplate />
+                <BaseTemplate>
+                    <HeaderData />
+                </BaseTemplate>
             </CssBaseline>
         </>
     )
 }
 
-ReactDOM.render(<MyApp />, document.getElementById('root'));
+/* paragraph lorem */
+// const App = () => {
+//     return (
+//         <>
+//             <CssBaseline>
+//                 <BaseTemplate>
+//                     <ParagraphData />
+//                 </BaseTemplate>
+//             </CssBaseline>
+//         </>
+//     )
+// }
+
+ReactDOM.render(<App />, document.getElementById('root'));

@@ -5,8 +5,8 @@ import LabelBottomNavigation from './subcomponents/LabelBottomNavigation';
 import Box from '@material-ui/core/Box';
 
 /* get some lorem for testing */
-import HeaderData from './Lorem/HeaderData';
-import ParagraphData from './Lorem/ParagraphData';
+// import HeaderData from './lorem/HeaderData';
+// import ParagraphData from './lorem/ParagraphData';
 
 class BaseTemplate extends Component {
     constructor(props) {
@@ -22,6 +22,8 @@ class BaseTemplate extends Component {
         const dims = this.getBoxDimensions(node);
         // update state to reflect this knowledge
         this.setState({ dimensions: dims });
+
+        console.log(this.props.children);
     }
 
     getBoxDimensions(node) {
@@ -37,7 +39,9 @@ class BaseTemplate extends Component {
 
     render() {
         /* content will be passed in thru props & will be renderd into box 
-         * where lorem header data component is being instantiated
+         * where lorem header data component is being instantiated. specifically,
+         * the content available in props is thru the children prop and can be
+         * any number of components. as such, it's accessed below via `props.children`.
          */
         return (
             <div style={{ height: '100%' }} ref={this.div}>
@@ -57,7 +61,7 @@ class BaseTemplate extends Component {
                                         marginBottom: `${this.state.dimensions[3]}px`
                                     }}
                                 >
-                                    <HeaderData />
+                                    {this.props.children}
                                 </Box>
                             </>
                         ) : (
