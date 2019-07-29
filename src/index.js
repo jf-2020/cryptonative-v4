@@ -5,22 +5,38 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 
 /* import lorem for testing */
 import HeaderData from './components/lorem/HeaderData';
-// import ParagraphData from './components/lorem/ParagraphData';
+import ParagraphData from './components/lorem/ParagraphData';
 
-/* header lorem */
+/* multiple child components -- all lorem */
 const App = () => {
     return (
         <>
             <CssBaseline>
                 <BaseTemplate>
                     <HeaderData />
+                    <ParagraphData />
+                    <HeaderData />
+                    <ParagraphData />
                 </BaseTemplate>
             </CssBaseline>
         </>
     )
 }
 
-/* paragraph lorem */
+// /* header lorem */
+// const App = () => {
+//     return (
+//         <>
+//             <CssBaseline>
+//                 <BaseTemplate>
+//                     <HeaderData />
+//                 </BaseTemplate>
+//             </CssBaseline>
+//         </>
+//     )
+// }
+
+// /* paragraph lorem */
 // const App = () => {
 //     return (
 //         <>
