@@ -9,10 +9,73 @@ Chart.defaults.global.legend.display = true;
 //--Chart Style Options--//
 
 
-
 function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + .1)) + min;
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+/////////////////////////////////////////////////////////////////
+
+const coincap = "https://api.coincap.io/v2/assets/bitcoin/history?interval=m15";
+/***********/
+/* methods */
+/***********/
+function get(url) {
+    /* main getter for API data */
+    return fetch(url)
+        .then(response => {
+            // render the response as json
+            return response.json();
+        })
+        .then(data => {
+            // pass out the data
+            console.log("get", data);
+            return data;
+        })
+        .catch(error => {
+            return error;
+        });
+}
+
+console.log("get coincap", get(coincap));
+
+
+const prices = [];
+console.log("prices", prices)
+const dates = [];
+const times = [];
+
+function loadCoinPrices() {
+    const url = `https://api.coincap.io/v2/assets/bitcoin/history?interval=m15`;
+    get(url)
+        .then(response => {
+            // log out the status of the response
+
+            let count = 0;
+            // now, the prices are stored in an array of objects
+            response.data.forEach(price => {
+                // get the current price
+                const priceUSD = price.priceUsd;
+                // extract the date & time
+                const datestring = price.date;
+                const dateAndTime = datestring.split("T");
+                const day = dateAndTime[0];
+                const time = dateAndTime[1].substr(0, 5);
+                // add it to the price, date & time arrays
+                if (count % 16 == 0) {
+                    // but only if it's every 16th element...
+                    prices.push(priceUSD);
+                    dates.push(day);
+                    times.push(time);
+                }
+                // bump up the count
+                count++;
+            })
+            return [prices, dates, times];
+        })
+}
+loadCoinPrices();
+
+console.log("loadCoinPrices", prices)
+/////////////////////////////////////////////////////////////////
 
 const getState = () => ({
     labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
@@ -35,8 +98,7 @@ const getState = () => ({
             pointHoverBorderColor: 'rgba(220,220,220,1)',
             pointHoverBorderWidth: 2,
             pointRadius: 1,
-            pointHitRadius: 10,
-            data: [getRandomInt(-1, 1), getRandomInt(-1, 1), getRandomInt(-1, 1), getRandomInt(-1, 1), getRandomInt(-1, 1), getRandomInt(-1, 1), getRandomInt(-1, 1)]
+            pointHitRadius: 10
         }
     ]
 });
@@ -48,7 +110,7 @@ export default class LineGraph extends Component {
     componentWillMount() {
         setInterval(() => {
             this.setState(getState());
-        }, 2000);
+        }, 5000);
     }
 
     componentDidMount() {
@@ -58,6 +120,8 @@ export default class LineGraph extends Component {
     componentDidUpdate() {
         this.buildChart();
     }
+
+
 
     buildChart = () => {
         const myChartRef = this.chartRef.current.getContext("2d");
@@ -69,19 +133,18 @@ export default class LineGraph extends Component {
 
         let gradientLine = myChartRef
             .createLinearGradient(0, 0, 0, graphHeight);
-        gradientLine.addColorStop(0, "rgb(0, 0, 110, 0.2)");
-        gradientLine.addColorStop(0.5, "rgb(135, 0, 110, 0.35)");
-        gradientLine.addColorStop(1, "rgb(255, 0, 110, 0.7)");
+        gradientLine.addColorStop(0, "rgb(12, 236, 197, 0.7)");
+        gradientLine.addColorStop(1, "rgb(89, 60, 182, 0.7)");
 
         myLineChart = new Chart(myChartRef, {
             type: "line",
             data: {
                 //Bring in data
-                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+                labels: [],
                 datasets: [
                     {
-                        label: "Sales",
-                        data: [getRandomInt(-100, 100), getRandomInt(-100, 100), getRandomInt(-100, 100), getRandomInt(-100, 100), getRandomInt(-100, 100), getRandomInt(-100, 100), getRandomInt(-100, 100)],
+                        label: "LineGraph",
+                        data: [prices],
                         fill: true,
                         fillColor: gradientLine,
                         backgroundColor: gradientLine,
@@ -115,4 +178,3 @@ export default class LineGraph extends Component {
         )
     }
 }
-
