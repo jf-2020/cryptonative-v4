@@ -7,21 +7,56 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import HeaderData from './components/lorem/HeaderData';
 import ParagraphData from './components/lorem/ParagraphData';
 
-/* multiple child components -- all lorem */
+/* import charts */
+import LineChart from './components/Charts/LineChart';
+import LineGraph from './components/Charts/LineGraph';
+
+/* testing charts & lorem */
 const App = () => {
     return (
         <>
             <CssBaseline>
                 <BaseTemplate>
                     <HeaderData />
+                    <LineGraph />
                     <ParagraphData />
+                    <LineChart />
                     <HeaderData />
-                    <ParagraphData />
                 </BaseTemplate>
             </CssBaseline>
         </>
     )
 }
+
+// /* testing the graphs as child componets */
+// const App = () => {
+//     return (
+//         <>
+//             <CssBaseline>
+//                 <BaseTemplate>
+//                     <LineGraph />
+//                     <LineChart />
+//                 </BaseTemplate>
+//             </CssBaseline>
+//         </>
+//     )
+// }
+
+// /* multiple child components -- all lorem */
+// const App = () => {
+//     return (
+//         <>
+//             <CssBaseline>
+//                 <BaseTemplate>
+//                     <HeaderData />
+//                     <ParagraphData />
+//                     <HeaderData />
+//                     <ParagraphData />
+//                 </BaseTemplate>
+//             </CssBaseline>
+//         </>
+//     )
+// }
 
 // /* header lorem */
 // const App = () => {
