@@ -4,10 +4,13 @@
 import React from 'react';
 import BaseTemplate from '../BaseTemplate';
 
+import LineChart from '../Charts/LineChart';
+
 const PortfolioView = () => {
     return (
         <BaseTemplate>
             <h1>Portfolio View</h1>
+            <LineChart />
         </BaseTemplate>
     )
 };
