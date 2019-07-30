@@ -10,7 +10,7 @@
 import React, { Component } from 'react';
 import fetch from 'node-fetch';
 
-import RowBadge from '../unused/RowBadge';
+import RowBadge from './RowBadge';
 import RowItem from './RowItem';
 
 import '../../styles/Row.css';
@@ -58,8 +58,6 @@ class MarketIndexRow extends Component {
                     data[property] = this.state[property];
                 }
             }
-
-            console.log("data:", data);
 
             return (
                 <div className="row-div">
