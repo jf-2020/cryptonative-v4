@@ -9,7 +9,7 @@ function getRandomInt(min, max) {
 const getState = () => ({
     labels: [
         'Red',
-        'Green',
+        'Blue',
         'Yellow'
     ],
     datasets: [{
