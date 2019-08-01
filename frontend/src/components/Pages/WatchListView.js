@@ -2,10 +2,6 @@
 // from which a user can set particular currencies to follow
 // but perhaps not purchase
 
-/***************/
-/* API TESTING */
-/***************/
-
 import React, { Component } from 'react';
 import BaseTemplate from '../BaseTemplate';
 import fetch from 'node-fetch';
@@ -18,7 +14,6 @@ class WatchListView extends Component {
     }
 
     callAPI() {
-        // test communication with the API here
         fetch("http://localhost:9000/testAPI")
             .then(res => res.text())
             .then(res_text => this.setState({
@@ -40,13 +35,5 @@ class WatchListView extends Component {
         )
     }
 }
-
-// const WatchListView = () => {
-//     return (
-//         <BaseTemplate>
-//             <h1>Watch List View</h1>
-//         </BaseTemplate>
-//     );
-// };
 
 export default WatchListView;

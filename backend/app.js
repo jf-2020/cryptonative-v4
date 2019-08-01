@@ -6,7 +6,8 @@ const createError = require('http-errors'),
     cors = require('cors');
 
 const indexRouter = require('./routes/index'),
-    testAPIRouter = require('./routes/testAPI');
+    testAPIRouter = require('./routes/testAPI'),
+    portfolioRouter = require('./routes/portfolios');
 
 const app = express();
 
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/testAPI', testAPIRouter);
+app.use('/portfolios', portfolioRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

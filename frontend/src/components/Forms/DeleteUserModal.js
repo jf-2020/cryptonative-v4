@@ -6,13 +6,12 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-class FormDialog extends Component {
+class DeleteUserModal extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            open: false,
-            setOpen: false
+            open: false
         };
 
         this.handleClickOpen = this.handleClickOpen.bind(this);
@@ -35,29 +34,12 @@ class FormDialog extends Component {
         return (
             <div>
                 <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
-                    Add User
+                    Delete User
                 </Button>
                 <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title">Add User</DialogTitle>
+                    <DialogTitle id="form-dialog-title">Delete User</DialogTitle>
                     <DialogContent>
                         <TextField
-                            autoFocus
-                            margin="dense"
-                            id="first-name"
-                            label="First Name"
-                            type="text"
-                            fullWidth
-                        />
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="last-name"
-                            label="Last Name"
-                            type="text"
-                            fullWidth
-                        />
-                        <TextField
-                            autofocus
                             id="email"
                             label="Email"
                             type="email"
@@ -65,7 +47,6 @@ class FormDialog extends Component {
                             fullWidth
                         />
                         <TextField
-                            autofocus
                             id="password"
                             label="Password"
                             type="password"
@@ -75,7 +56,7 @@ class FormDialog extends Component {
                     </DialogContent>
                     <DialogActions>
                         <Button onClick={this.handleClose} color="primary">
-                            Add
+                            Delete User
                         </Button>
                     </DialogActions>
                 </Dialog>
@@ -84,4 +65,4 @@ class FormDialog extends Component {
     }
 }
 
-export default FormDialog;
+export default DeleteUserModal;

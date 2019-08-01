@@ -1,8 +1,6 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
 
-const data = [150, 200, 250];
-
 const colorMap = { 'Red': '#FF6384', 'Blue': '#36A2EB', 'Yellow': '#FFCE56' };
 
 function createColors(length) {
@@ -20,42 +18,13 @@ function createColors(length) {
     return { labels, bgColors, hovBgColors }
 };
 
-// const getState = () => ({
-//     labels: [
-//         'Red',
-//         'Blue',
-//         'Yellow'
-//     ],
-//     datasets: [{
-//         data: [getRandomInt(50, 200), getRandomInt(100, 150), getRandomInt(150, 250)],
-//         backgroundColor: [
-//             '#FF6384',
-//             '#36A2EB',
-//             '#FFCE56'
-//         ],
-//         hoverBackgroundColor: [
-//             '#FF6384',
-//             '#36A2EB',
-//             '#FFCE56'
-//         ]
-//     }]
-// });
-
-const test_length = 3;
-
-export default function NewDonut() {
-    // TODO: Construct the data object to pass into
-    // the <Doughnut> component
-    const { labels, bgColors, hovBgColors } = createColors(test_length);
-    // const colorData = createColors(test_length);
-    // const labels = colorData.labels,
-    //         bgColors = colorData.bgColors,
-    //         hovBgColors = colorData.hovBgColors;
+const NewDonut = (props) => {
+    const { labels, bgColors, hovBgColors } = createColors(props.data.length);
 
     const data_to_pass_in = {
         labels: labels,
         datasets: [{
-            data: data,
+            data: props.data,
             backgroundColor: bgColors,
             hoverBackgroundColor: hovBgColors
         }]
@@ -65,13 +34,13 @@ export default function NewDonut() {
         <>
             <div>
                 <h2>Dynamicly refreshed Doughnut</h2>
-                <Doughnut data={ data_to_pass_in } options={ {
+                <Doughnut data={data_to_pass_in} options={{
                     cutoutPercentage: 80,
                     rotation: 120
-                } } />
+                }} />
             </div>
         </>
     );
 };
 
-
+export default NewDonut;

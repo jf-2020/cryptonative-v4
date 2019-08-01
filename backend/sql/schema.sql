@@ -1,6 +1,6 @@
 -- CryptoNative Schema
 
-CREATE TABLE Users (
+CREATE TABLE users (
 	user_id 		serial 			PRIMARY KEY	,
 	first_name 		varchar(255) 				,
 	last_name 		varchar(255) 				,
@@ -9,13 +9,13 @@ CREATE TABLE Users (
 );
 
 
-CREATE TABLE Portfolios (
+CREATE TABLE portfolios (
 	portfolio_id 	serial 			PRIMARY KEY					,
 	name 			varchar(255) 								,
 	user_id 		integer 		REFERENCES users (user_id)
 );
 
-CREATE TABLE Coins (
+CREATE TABLE coins (
 	coin_id 		serial 		PRIMARY KEY								,
 	portfolio_id 	integer 	REFERENCES portfolios (portfolio_id)	,
 	user_id 		integer 	REFERENCES users (user_id)				,

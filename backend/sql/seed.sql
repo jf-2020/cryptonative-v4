@@ -1,6 +1,6 @@
 -- create dummy users
 INSERT INTO
-Users (user_id, first_name, last_name, email, password)
+users (user_id, first_name, last_name, email, password)
 VALUES
 (1, 'Loretta', 'Westraw', 'lwestraw0@harvard.edu', 'bsneegr'),
 (2, 'Bobby', 'Pawlik', 'bpawlik1@nature.com', 'UPWMrMMb1B4c'),
@@ -16,7 +16,7 @@ VALUES
 -- create dummy portfolios, being sure to appropriately associate
 -- user_id with an actual dummy user's user_id
 INSERT INTO
-Portfolios (portfolio_id, name, user_id)
+portfolios (portfolio_id, name, user_id)
 VALUES
 (1, 'Consumer Non-Durables', 1),
 (2, 'Consumer Services', 2),
@@ -43,7 +43,7 @@ VALUES
 -- both user_id and portfolio_id with an actual portfolio's
 -- portfolio_id that's associated with an actual user's user_id
 INSERT INTO
-Coins (coin_id, portfolio_id, user_id, name, symbol, amount, price)
+coins (coin_id, portfolio_id, user_id, name, symbol, amount, price)
 VALUES
 (1, 1, 1, 'Skalith', 'BEAT', 88, 777.77),
 (2, 1, 1, 'Yoveo', 'MIII', 56, 334.82),

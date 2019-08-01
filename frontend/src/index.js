@@ -8,6 +8,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import MarketIndexView from './components/Pages/MarketIndexView';
 import PortfolioView from './components/Pages/PortfolioView';
 import WatchListView from './components/Pages/WatchListView';
+import UserProfileView from './components/Pages/UserProfileView';
 
 // /* import lorem for testing */
 // import HeaderData from './components/lorem/HeaderData';
@@ -26,7 +27,7 @@ const App = () => {
                     <Route exact path="/one" component={withRouter(MarketIndexView)} />
                     <Route exact path="/two" component={withRouter(WatchListView)} />
                     <Route exact path="/three" component={withRouter(PortfolioView)} />
-                    <Route exact path="/four" component={withRouter(MarketIndexView)} />
+                    <Route exact path="/four" component={withRouter(UserProfileView)} />
                 </Switch>
             </CssBaseline>
         </Router>
