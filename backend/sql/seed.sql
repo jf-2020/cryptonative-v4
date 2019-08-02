@@ -2,21 +2,21 @@
 INSERT INTO
 users (user_id, first_name, last_name, email, password)
 VALUES
-(1, 'Loretta', 'Westraw', 'lwestraw0@harvard.edu', 'bsneegr'),
-(2, 'Bobby', 'Pawlik', 'bpawlik1@nature.com', 'UPWMrMMb1B4c'),
-(3, 'Freddie', 'Ellins', 'fellins2@redcross.org', 'UmTVujwIDa5'),
-(4, 'Clotilda', 'Matonin', 'cmatonin3@blinklist.com', 'nH7BpyF'),
-(5, 'Shay', 'Furby', 'sfurby4@tuttocitta.it', 'XdpsFQMsR'),
-(6, 'Cale', 'Trenholm', 'ctrenholm5@cpanel.net', 'icF4XddP'),
-(7, 'Fonz', 'Smaling', 'fsmaling6@cpanel.net', 'I1eBuD'),
-(8, 'Reggie', 'Forseith', 'rforseith7@t-online.de', 'inyXvkV9L3'),
-(9, 'Cyndie', 'Dellenbach', 'cdellenbach8@comsenz.com', 'ltVFupFchJfd'),
-(10, 'Wheeler', 'Wotton', 'wwotton9@smh.com.au', 'Pb6pbJv');
+('Loretta', 'Westraw', 'lwestraw0@harvard.edu', 'bsneegr'),
+('Bobby', 'Pawlik', 'bpawlik1@nature.com', 'UPWMrMMb1B4c'),
+('Freddie', 'Ellins', 'fellins2@redcross.org', 'UmTVujwIDa5'),
+('Clotilda', 'Matonin', 'cmatonin3@blinklist.com', 'nH7BpyF'),
+('Shay', 'Furby', 'sfurby4@tuttocitta.it', 'XdpsFQMsR'),
+('Cale', 'Trenholm', 'ctrenholm5@cpanel.net', 'icF4XddP'),
+('Fonz', 'Smaling', 'fsmaling6@cpanel.net', 'I1eBuD'),
+('Reggie', 'Forseith', 'rforseith7@t-online.de', 'inyXvkV9L3'),
+('Cyndie', 'Dellenbach', 'cdellenbach8@comsenz.com', 'ltVFupFchJfd'),
+('Wheeler', 'Wotton', 'wwotton9@smh.com.au', 'Pb6pbJv');
 
 -- create dummy portfolios, being sure to appropriately associate
 -- user_id with an actual dummy user's user_id
 INSERT INTO
-portfolios (portfolio_id, name, user_id)
+portfolios (name, user_id)
 VALUES
 (1, 'Consumer Non-Durables', 1),
 (2, 'Consumer Services', 2),

@@ -19,6 +19,14 @@ import UserProfileView from './components/Pages/UserProfileView';
 // import LineGraph from './components/Charts/LineGraph';
 
 const App = () => {
+    try {
+        const store = sessionStorage;
+        store.setItem('key', 'value');
+        console.log("app level store:", store);
+    } catch (error) {
+        console.log("session storage error:", error.message);
+    }
+
     return (
         <Router>
             <CssBaseline>
