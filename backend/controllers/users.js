@@ -10,17 +10,17 @@ index_get = async (req, res) => {
 }
 
 signup_post = async (req, res) => {
-    const { first_name, last_name, email, password } = req.body;
+    const { firstName, lastName, email, password } = req.body;
     console.log('req.body is displayed as: ', req.body);
-    console.log('first_name as entered', first_name);
-    console.log('last_name as entered', last_name);
+    console.log('first_name as entered', firstName);
+    console.log('last_name as entered', lastName);
     console.log('email as entered', email);
     console.log('password as entered', password);
 
     const salt = bcrypt.genSaltSync(10);
     const hash = bcrypt.hashSync(password, salt);
 
-    const userInstance = new User(null, first_name, last_name, email, hash);
+    const userInstance = new User(null, firstName, lastName, email, hash);
     let check = await userInstance.CheckIfDuplicate();
 
     if (typeof check === 'object') {
