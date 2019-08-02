@@ -6,6 +6,7 @@ const createError = require('http-errors'),
     cors = require('cors');
 
 const indexRouter = require('./routes/index'),
+    usersRouter = require('./routes/users'),
     testAPIRouter = require('./routes/testAPI'),
     portfolioRouter = require('./routes/portfolios');
 
@@ -23,6 +24,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/portfolios', portfolioRouter);
 
