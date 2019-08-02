@@ -17,8 +17,7 @@ VALUES
 -- create dummy portfolios, being sure to appropriately associate
 -- user_id with an actual dummy user's user_id
 INSERT INTO
-portfolios
-    (portfolio_id, name, user_id)
+portfolios (name, user_id)
 VALUES
     (1, 'Consumer Non-Durables', 1),
     (2, 'Consumer Services', 2),
