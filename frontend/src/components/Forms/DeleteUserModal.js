@@ -11,7 +11,9 @@ class DeleteUserModal extends Component {
         super(props);
 
         this.state = {
-            open: false
+            open: false,
+            email: '',
+            password: ''
         };
         this.handleClickOpen = this.handleClickOpen.bind(this);
         this.handleClose = this.handleClose.bind(this);
@@ -22,7 +24,9 @@ class DeleteUserModal extends Component {
 
     handleClickOpen() {
         this.setState({
-            open: true
+            open: true,
+            email: '',
+            password: ''
         });
     }
 
@@ -33,14 +37,12 @@ class DeleteUserModal extends Component {
     }
 
     handleEmail(e) {
-        e.preventDefault();
         this.setState({
             email: e.target.value
         })
     };
 
     handlePassword(e) {
-        e.preventDefault();
         this.setState({
             password: e.target.value
         })
@@ -48,8 +50,6 @@ class DeleteUserModal extends Component {
 
     async handleSubmit(e) {
         e.preventDefault();
-        const newInfo = this.state;
-        console.log("this is the form data:", newInfo);
 
         const url = `http://localhost:9000/users/delete`;
 
@@ -64,50 +64,47 @@ class DeleteUserModal extends Component {
                 password: this.state.password
             })
         });
-
-        this.setState({
-            email: '',
-            password: ''
-        });
     }
 
     render() {
         return (
             <div>
-                <Button variant="outlined" color="primary" onClick={ this.handleClickOpen }>
+                <Button variant="outlined" color="primary" onClick={this.handleClickOpen}>
                     Delete User
                 </Button>
-                <Dialog open={ this.state.open } onClose={ this.handleClose } aria-labelledby="form-dialog-title">
-                    <DialogTitle id="form-dialog-title">Delete User</DialogTitle>
-                    <DialogContent>
-                        <TextField
-                            id="email"
-                            label="Email"
-                            type="email"
-                            margin="dense"
-                            fullWidth
-                            placeholder="Satoshi@Nakamoto.com"
-                            onChange={ this.handleEmail }
-                            value={ this.state.email }
-                            required
-                        />
-                        <TextField
-                            id="password"
-                            label="Password"
-                            type="password"
-                            margin="dense"
-                            fullWidth
-                            placeholder="Bitcoin"
-                            onChange={ this.handlePassword }
-                            value={ this.state.password }
-                            required
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={ this.handleSubmit } color="primary">
-                            Delete User
+                <Dialog open={this.state.open} onClose={this.handleClose} aria-labelledby="form-dialog-title">
+                    <form onSubmit={this.handleSubmit}>
+                        <DialogTitle id="form-dialog-title">Delete User</DialogTitle>
+                        <DialogContent>
+                            <TextField
+                                id="email"
+                                label="Email"
+                                type="email"
+                                margin="dense"
+                                fullWidth
+                                placeholder="Satoshi@Nakamoto.com"
+                                onChange={this.handleEmail}
+                                value={this.state.email}
+                                required
+                            />
+                            <TextField
+                                id="password"
+                                label="Password"
+                                type="password"
+                                margin="dense"
+                                fullWidth
+                                placeholder="Bitcoin"
+                                onChange={this.handlePassword}
+                                value={this.state.password}
+                                required
+                            />
+                        </DialogContent>
+                        <DialogActions>
+                            <Button type="submit" value="Submit" onClick={this.handleClose} color="primary">
+                                Delete User
                         </Button>
-                    </DialogActions>
+                        </DialogActions>
+                    </form>
                 </Dialog>
             </div>
         );
