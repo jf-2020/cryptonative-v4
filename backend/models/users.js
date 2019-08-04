@@ -40,8 +40,9 @@ class User {
                 WHERE email = $1
                 `, [this.email]);
             return userData;
-        } catch (err) {
-            return err.message;
+        } catch (error) {
+            console.log("getUserByEmail() error:", error.message);
+            return error.message;
         }
     }
 
@@ -70,7 +71,6 @@ class User {
         }
     }
 
-    /* SETTER */
     setUserId(user_id) {
         this.user_id = user_id;
     }

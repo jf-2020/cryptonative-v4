@@ -18,36 +18,49 @@ exports.signup_post = async (req, res) => {
     }
 }
 
-// exports.login_post = async (req, res) => {
-//     const { email, password } = req.body;
-
-//     const userInstance = new User(null, null, null, email, password);
-
-//     const userData = await userInstance.getUserByEmail();
-
-//     const isValid = await bcrypt.compareSync(password, userData.password);
-
-//     if (!!isValid) {
-//         res.sendStatus(200);
-//     } else {
-//         res.sendStatus(401);
-//     }
-// };
-
-exports.delete_user_post = async (req, res) => {
-    const email = req.body.email;
-    const password = req.body.password;
+exports.login_post = async (req, res) => {
+    const { email, password } = req.body;
 
     const userInstance = new User(null, null, null, email, password);
     const userData = await userInstance.getUserByEmail();
     userInstance.setUserId(userData.user_id);
-    console.log("userInstance:", userInstance);
 
     const isValid = await bcrypt.compareSync(password, userData.password);
-    console.log('isValid:', isValid);
+
+    if (!!isValid) {
+        res.json({ user: userInstance.user_id });
+    } else {
+        res.sendStatus(401);
+    }
+};
+
+exports.delete_user_post = async (req, res) => {
+    const { email, password } = req.body;
+
+    const userInstance = new User(null, null, null, email, password);
+    const userData = await userInstance.getUserByEmail();
+    userInstance.setUserId(userData.user_id);
+
+    const isValid = await bcrypt.compareSync(password, userData.password);
 
     if (!!isValid) {
         await userInstance.deleteUserById();
+        res.sendStatus(200);
+    } else {
+        res.sendStatus(401);
+    }
+}
+
+exports.logout_post = async (req, res) => {
+    const { email, password } = req.body;
+
+    const userInstance = new User(null, null, null, email, password);
+    const userData = await userInstance.getUserByEmail();
+    userInstance.setUserId(userData.user_id);
+
+    const isValid = await bcrypt.compareSync(password, userData.password);
+
+    if (!!isValid) {
         res.sendStatus(200);
     } else {
         res.sendStatus(401);
